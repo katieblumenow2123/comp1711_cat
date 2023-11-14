@@ -1,10 +1,9 @@
 #include "FitnessDataStruct.h"
 
-//use if else switch
+
+
+
 int menu(){
-    //define variables
-    char file_to_read[100];
-    char option;
     //create a while loop so the program will run until the user quits 
     while (option!='Q'){
         printf ("PICK AN OPTION: ");
@@ -50,11 +49,9 @@ int menu(){
 
 int main(){
 
-    menu();
+        menu();
 
 
         
-
-
-    return 0;
+        return 0;
 }
