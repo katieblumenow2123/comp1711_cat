@@ -18,19 +18,24 @@ int menu(){
                     break;
 
             case 'B': printf ("Total records: ");
+                    option_b(file_to_read);
                     break;
 
         
             case 'C': printf ("Fewest steps: ");
+                    option_c();
                     break;
 
             case 'D': printf ("Largest steps: ");
+                    option_d();
                     break;
             
             case 'E': printf ("Mean step count: ");
+                    option_e();
                     break;
 
-            case 'F': printf ("Longest period start, Longest perido end");
+            case 'F': printf ("Longest period start, Longest period end");
+                    option_f();
                     break;
 
             default:  break;
