@@ -2,7 +2,6 @@
 
 
 
-
 int menu(){
     //create a while loop so the program will run until the user quits 
     while (option!='Q'){
@@ -18,11 +17,12 @@ int menu(){
                     break;
 
             case 'B': printf ("Total records: ");
-                    option_b(file_to_read);
+                    option_b();
                     break;
 
         
             case 'C': printf ("Fewest steps: ");
+                   // option_c();
                     option_c();
                     break;
 
@@ -34,7 +34,7 @@ int menu(){
                     option_e();
                     break;
 
-            case 'F': printf ("Longest period start, Longest period end");
+            case 'F': 
                     option_f();
                     break;
 

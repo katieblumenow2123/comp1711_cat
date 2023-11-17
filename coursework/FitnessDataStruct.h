@@ -69,16 +69,14 @@ int tokenise_file(FILE *file){
 }
 
 
-
-
-int option_a(char file_to_read[]){
+void option_a(char file_to_read[]){
     FILE *file;
     file = fopen(file_to_read , "r");
     //check if the file is empty
     //If it is return an error
     if(file == NULL) {
         perror("");
-        printf("Error could not open file");
+        printf("Error could not open file\n");
         exit(1);
 
     }
@@ -93,7 +91,7 @@ void option_b(){
 
 }
 
-int option_c(){
+void option_c(){
     int count_c = 0;
     int fewest_steps = 9999;
     int index_position_c;
@@ -110,11 +108,10 @@ int option_c(){
     
 
 
-
 }
 
 
-int option_d(){
+void option_d(){
     int count_d = 0;
     int largest_steps = 0;
     int index_position_d = 0;
@@ -133,7 +130,7 @@ int option_d(){
 
 }
 
-int option_e(){
+void option_e(){
     int count_e = 0;
     int total = 0;
     while (count_e < number_of_records){
@@ -145,16 +142,33 @@ int option_e(){
     printf("%d\n", mean);
 }
 
-int option_f(){
+void option_f(){
     int count_f = 0;
     int current_longest = 0;
-    char* period_start = 0;
-    char* period_end = 0;
+    int longest_overall = 0;
+    int current_period_start = 0;
+    int greatest_period_start = 0;
+    int greatest_period_end = 0;
     while (count_f < number_of_records){
-        if(records[count_f].steps>500&&count_f!=0){
-             return 0;  
+        if(records[count_f].steps>500){
+            if(current_longest==0){
+                current_period_start = count_f;
             }
-
+            current_longest+=1;
+        }
+        else{
+            if(current_longest>longest_overall){
+                longest_overall = current_longest;
+                greatest_period_start = current_period_start;
+                greatest_period_end = count_f;
+            }
+            current_longest = 0;
+        }
+        
+        count_f+=1;
     }
-    return 0;
+        printf("Longest period start: %s %d\n",records[greatest_period_start].date, records[greatest_period_start].steps);
+        printf("Longest period end: %s %d\n",records[greatest_period_end].date, records[greatest_period_end].steps);
+
 }
+
